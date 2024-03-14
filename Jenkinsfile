@@ -19,4 +19,16 @@ pipeline {
             }
         }
     }
+    post {
+        success {
+            emailext subject: 'Pipeline Success',
+                      body: 'Your pipeline has succeeded!',
+                      to: 'justinruizsrdev@gmail.com'
+        }
+        failure {
+            emailext subject: 'Pipeline Failure',
+                      body: 'Your pipeline has failed!',
+                      to: 'justinruizsrdev@gmail.com'
+        }
+    }
 }
